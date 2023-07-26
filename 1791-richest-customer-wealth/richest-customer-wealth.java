@@ -16,14 +16,5 @@ class Solution {
         int f=Collections.max(store);
         return f;
     }
-
-    // int maximum(int[] arr){
-    //     int maxi = arr[0];
-    //     for(int i=0;i<arr.length;i++){
-    //         if(arr[i]>0)
-    //             maxi=arr[i];
-    //     }
-    //     return maxi;
-    // }
 }
 

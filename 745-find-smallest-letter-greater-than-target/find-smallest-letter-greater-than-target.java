@@ -9,10 +9,10 @@ class Solution {
             else
                 start = mid + 1;
         }
-        if(start>letters.length -1){
-            start=0;
-        }
-        return letters[start];
+        // if(start>letters.length -1){
+        //     start=0;
+        // }
+        return letters[start%letters.length];
 
     }
 }

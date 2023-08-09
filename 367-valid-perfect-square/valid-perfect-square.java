@@ -2,12 +2,7 @@ class Solution {
     public boolean isPerfectSquare(int num) {
         boolean ans = false;
         long start= 0;
-        long end;
-        if(num==4 || num==1){
-            end = num;
-        }else{
-            end = num/2;
-        }
+        long end = num;
         long mid;
         while(start<=end){
             mid = start + (end-start)/2;

@@ -1,41 +1,41 @@
-// class Solution {
-//     public int findKthPositive(int[] arr, int k) {
-//         ArrayList<Integer> list = new ArrayList<Integer>();
-//         for(int i=1;i<=arr[arr.length-1]+k+1;i++){
-//             list.add(i);
-//         }
-//         for(int i=0;i<arr.length;i++){
-//             list.remove(Integer.valueOf(arr[i]));
-//         }
-//         return list.get(k-1);
-//     }
-// }
-
-class Solution { 
+class Solution {
     public int findKthPositive(int[] arr, int k) {
-        int count = 0;
-        int ans = 1;
-        int idx = 0;
-
-        while(idx < arr.length && count < k) {
-            if(arr[idx]==ans) {
-                ans++;
-                idx++;
-            }
-            else {
-                ans++;
-                count++;
-            }
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int i=1;i<=arr[arr.length-1]+k+1;i++){
+            list.add(i);
         }
-
-        while(count < k) {
-            ans++;
-            count++;
+        for(int i=0;i<arr.length;i++){
+            list.remove(Integer.valueOf(arr[i]));
         }
-        
-        return ans-1;
+        return list.get(k-1);
     }
 }
+
+// class Solution { 
+//     public int findKthPositive(int[] arr, int k) {
+//         int count = 0;
+//         int ans = 1;
+//         int idx = 0;
+
+//         while(idx < arr.length && count < k) {
+//             if(arr[idx]==ans) {
+//                 ans++;
+//                 idx++;
+//             }
+//             else {
+//                 ans++;
+//                 count++;
+//             }
+//         }
+
+//         while(count < k) {
+//             ans++;
+//             count++;
+//         }
+        
+//         return ans-1;
+//     }
+// }
 
 // class Solution {
 //     public int findKthPositive(int[] arr, int k) {

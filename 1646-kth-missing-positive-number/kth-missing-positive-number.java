@@ -11,21 +11,47 @@
 //     }
 // }
 
-class Solution {
+class Solution { 
     public int findKthPositive(int[] arr, int k) {
-        int num = 1; // Current positive integer to check
-        int count = 0; // Count of missing positive integers
-        int i = 0; // Index for the input array
-        
-        while (count < k) {
-            if (i < arr.length && arr[i] == num) {
-                i++; // Move to the next element in the array
-            } else {
-                count++; // Increment the count of missing positive integers
+        int count = 0;
+        int ans = 1;
+        int idx = 0;
+
+        while(idx < arr.length && count < k) {
+            if(arr[idx]==ans) {
+                ans++;
+                idx++;
             }
-            num++; // Move to the next positive integer
+            else {
+                ans++;
+                count++;
+            }
+        }
+
+        while(count < k) {
+            ans++;
+            count++;
         }
         
-        return num - 1; // The k-th missing positive integer
+        return ans-1;
     }
 }
+
+// class Solution {
+//     public int findKthPositive(int[] arr, int k) {
+//         int num = 1; // Current positive integer to check
+//         int count = 0; // Count of missing positive integers
+//         int i = 0; // Index for the input array
+        
+//         while (count < k) {
+//             if (i < arr.length && arr[i] == num) {
+//                 i++; // Move to the next element in the array
+//             } else {
+//                 count++; // Increment the count of missing positive integers
+//             }
+//             num++; // Move to the next positive integer
+//         }
+        
+//         return num - 1; // The k-th missing positive integer
+//     }
+// }

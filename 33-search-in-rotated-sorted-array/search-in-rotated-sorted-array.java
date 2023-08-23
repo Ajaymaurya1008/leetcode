@@ -34,7 +34,7 @@ class Solution {
         
     
     
-    public int findPivot(int[] arr){
+       public int findPivot(int[] arr){
         int start  =0;
         int end = arr.length-1;
         int mid=0;
@@ -44,10 +44,10 @@ class Solution {
                 return mid;
             else if(mid>start && arr[mid]<arr[mid-1])
                 return mid-1;
-            else if(arr[mid]<=arr[start])
-                end=mid-1;
-            else
+            else if(arr[start]<=arr[mid])
                 start=mid+1;
+            else
+                end = mid-1;
         }
         return mid;
     }

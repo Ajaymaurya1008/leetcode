@@ -1,25 +1,7 @@
 
 class Solution {
     public int search(int[] nums, int target) {
-        int n = findPivot(nums);
-        // ArrayList<Integer> arr = new ArrayList<Integer>();
-        // for(int i=0;i<n;i++){
-        //     arr.add(nums[i]);
-        // }
-        // ArrayList<Integer> arr2 = new ArrayList<Integer>();
-        // for(int i=n+1;i<nums.length;i++){
-        //     arr2.add(nums[i]);
-        // }
-        // int p = Collections.binarySearch(arr,target);
-        // int q = Collections.binarySearch(arr2,target);
-        // System.out.println(q);
-        // if(target==n)
-        //     return n;
-        // if(p!=-1)
-        //     return p;
-        // if(q>-1)
-        //     return n+q+1;
-        
+        int n = findPivot(nums);        
         int start=0;
         int end = n-1;
         System.out.println(n);

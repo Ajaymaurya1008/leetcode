@@ -12,9 +12,6 @@ class Solution {
         int total = total1 + total2;
         for(int i =0; i<aliceSizes.length;i++){
             for(int j=0;j<bobSizes.length;j++){
-                // int temp = aliceSizes[i];
-                // aliceSizes[i] = bobSizes[j];
-                // bobSizes[j] = temp;
                 if(total1-aliceSizes[i]+bobSizes[j]==total/2){
                     ans[0]=aliceSizes[i];
                     ans[1]=bobSizes[j];

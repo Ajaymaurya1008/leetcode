@@ -1,11 +1,11 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        Arrays.sort(nums2);
-        for(int i=0;i<nums1.length;i++){
-            int m = Arrays.binarySearch(nums2,nums1[i]);
+        Arrays.sort(nums1);
+        for(int i=0;i<nums2.length;i++){
+            int m = Arrays.binarySearch(nums1,nums2[i]);
             if(m>-1){
-                list.add(nums1[i]);
+                list.add(nums2[i]);
             }
             // for(int j=0;j<nums2.length;j++){
             //     if(nums1[i]==nums2[j]){

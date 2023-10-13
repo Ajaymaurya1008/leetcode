@@ -1,27 +1,21 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        Arrays.sort(nums1);
-        for(int i=0;i<nums2.length;i++){
-            int m = Arrays.binarySearch(nums1,nums2[i]);
-            if(m>-1){
-                list.add(nums2[i]);
+        HashMap<Integer,Integer> map = new HashMap<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        HashSet<Integer> h = new HashSet<>();
+        HashSet<Integer> i = new HashSet<>();
+        for(int a:nums1){
+            h.add(a);
+        }
+        for(int b:nums2){
+            i.add(b);
+        }
+        for(int m:h){
+            if(i.contains(m)){
+                list.add(m);
             }
-            // for(int j=0;j<nums2.length;j++){
-            //     if(nums1[i]==nums2[j]){
-            //         // int k = Collections.binarySearch(list,nums1[i]);
-            //         // System.out.println(k);
-            //         // if(k<0){
-            //         list.add(nums1[i]);
-            //     }
-            // }
         }
-        Set<Integer> hashSet = new LinkedHashSet(list);
-        ArrayList<Integer> list2 = new ArrayList(hashSet);
-        int[] arr = new int[list2.size()];
-        for(int i =0;i<list2.size();i++){
-            arr[i]=list2.get(i);
-        }
+        int[] arr =list.stream().mapToInt(Integer::intValue).toArray();
         return arr;
     }
 }

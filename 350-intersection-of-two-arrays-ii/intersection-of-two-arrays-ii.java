@@ -12,15 +12,11 @@ class Solution {
         for(int i :nums2){
             if(!map2.containsKey(i) && map1.containsKey(i)){
                 map2.put(i,1);
-                // if(map1.contains(i) && map1.get(i)==map2.get(i)){
-                //     list.add()
-                // }
-            }else if(map2.containsKey(i) && map2.get(i)+1<=map1.get(i)){
+            }
+            else if(map2.containsKey(i) && map2.get(i)+1<=map1.get(i)){
                 map2.put(i,map2.get(i)+1);
             }
         }
-        System.out.println(map1);
-        System.out.println(map2);
         ArrayList<Integer> list = new ArrayList<>();
         for (Map.Entry<Integer, Integer> e : map2.entrySet()) {
             int key = e.getKey();

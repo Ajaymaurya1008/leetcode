@@ -1,24 +1,24 @@
 class Solution {
     public int numberOfBeams(String[] bank) {
-        int prevRowCount = 0;
-        int total=0;
-
-        for(String row : bank) {
-            int curRowCount = calc(row);
-            if(curRowCount==0) 
-                continue;
-
-            total += curRowCount * prevRowCount;
-            prevRowCount = curRowCount;
+        int[] arr = new int[bank.length];
+        for(int i=0;i<bank.length;i++){
+            int count=0;
+            String m = bank[i];
+            for(int j=0;j<m.length();j++){
+                if(m.charAt(j)=='1'){
+                    count++;
+                }
+            }
+            arr[i]=count;
         }
-        return total;
+        int ans=0;
+        int prev=0;
+        for(int i=0;i<arr.length;i++){
+            ans+=arr[i]*prev;
+            if(arr[i]!=0){
+                prev=arr[i];
+            }
+        }
+        return ans;
     }
-
-    private int calc(String s) {
-        int count = 0;
-        for(char c : s.toCharArray()) 
-            count += c - '0';
-
-        return count;
-    }    
 }

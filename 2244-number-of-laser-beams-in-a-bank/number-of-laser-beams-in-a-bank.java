@@ -13,7 +13,6 @@ class Solution {
         }
         int ans=0;
         int prev=0;
-        System.out.println(Arrays.toString(arr));
         for(int i=0;i<arr.length;i++){
             ans+=arr[i]*prev;
             if(arr[i]!=0){

@@ -5,11 +5,24 @@ class Solution {
             map.put(i,map.getOrDefault(i,0)+1);
         int count=0;
         for(int i:map.values()){
-            System.out.println(i);
-            if(i==1) return -1;
-            count += i / 3; 
-            if (i % 3 != 0)
-                count++;
+            int rem = i % 3;
+            while(i>0){
+                if(i-2<0){
+                    return -1;
+                }
+                else if(rem==0){
+                    count+=i/3;
+                    i=0;
+                }else if(rem==1){
+                    i=i-2;
+                    count++;
+                    rem=i%3;
+                }else if(rem==2){
+                    i=i-2;
+                    count++;
+                    rem=i%3;
+                }
+            }
         }
         return count;
     }

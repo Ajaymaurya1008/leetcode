@@ -7,7 +7,9 @@ class Solution {
         for(int i:map.values()){
             System.out.println(i);
             if(i==1) return -1;
-            count += Math.ceil((double)i / 3);
+            count += i / 3; 
+            if (i % 3 != 0)
+                count++;
         }
         return count;
     }

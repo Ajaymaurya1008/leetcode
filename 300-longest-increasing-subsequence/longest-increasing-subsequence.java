@@ -1,22 +1,23 @@
-public class Solution {
+class Solution {
     public int lengthOfLIS(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-
-        int n = nums.length;
-        int[] dp = new int[n];
-        Arrays.fill(dp, 1);
-
-        for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (nums[i] > nums[j]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+        ArrayList<Integer> sub = new ArrayList<>();
+        sub.add(nums[0]);
+        
+        for (int i = 1; i < nums.length; i++) {
+            int num = nums[i];
+            if (num > sub.get(sub.size() - 1)) {
+                sub.add(num);
+            } else {
+                // Find the first element in sub that is greater than or equal to num
+                int j = 0;
+                while (num > sub.get(j)) {
+                    j += 1;
                 }
+                
+                sub.set(j, num);
             }
         }
-
-        int maxLength = Arrays.stream(dp).max().orElse(0);
-        return maxLength;
+        
+        return sub.size();
     }
 }

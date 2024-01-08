@@ -18,11 +18,7 @@ class Solution {
             }
         }
         int sum=0;
-        while(!s.isEmpty()){
-            int num = s.peek();
-            sum+=num;
-            s.pop();
-        }
+        for(int score : s) sum += score;
         return sum;
     }
 }

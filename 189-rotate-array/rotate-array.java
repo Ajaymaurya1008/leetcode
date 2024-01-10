@@ -1,42 +1,18 @@
 class Solution {
     public void rotate(int[] nums, int k) {
-        int temp[] = new int[nums.length];
-        for(int i=0;i<nums.length;i++){
-            temp[(i+k)%nums.length] = nums[i];
+        if(k>nums.length) k=k%nums.length;
+        int n=nums.length-1;
+        reverse(nums,0,n);
+        reverse(nums,0,k-1);
+        reverse(nums,k,n);
+     }
+    public void reverse(int[] arr,int m,int n){
+        while(m<n){
+            int temp=arr[m];
+            arr[m]=arr[n];
+            arr[n]=temp;
+            m++;n--;
         }
-        for(int i=0;i<nums.length;i++){
-            nums[i]=temp[i];
-        }
+
     }
 }
-
-// class Solution {
-//     public void rotate(int[] nums, int k) {
-//         int[] arr = new int[k];
-//         if(nums.length<k){
-//             return;
-//         }
-//         int l=0;
-//         if(nums.length>1){
-//         l = nums.length-1;
-//         }
-//         for(int i =0;i<k;i++){
-//             arr[i]=nums[l];
-//                 l--;
-//         }
-//         int[] num = new int [nums.length];
-//         for(int i =0;i<num.length;i++){
-//             num[i]=nums[i];
-//         }
-//         int m=0;
-//         for(int i=k;i<nums.length;i++){
-//             nums[i]=num[m];
-//             m++;
-//         }
-//         int n = arr.length-1;
-//         for(int i=0;i<k;i++){
-//             nums[i]=arr[n];
-//             n--;
-//         }
-//     }
-// }

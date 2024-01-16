@@ -12,7 +12,6 @@ class RandomizedSet {
     
     public int getRandom() {
         int random = new Random().nextInt(set.size());
-        // int[] arr = set.toArray(new int[0]);
         Integer[] arr = set.toArray(new Integer[0]);
         return arr[random];
     }

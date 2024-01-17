@@ -4,11 +4,6 @@ class Solution {
         for(int i:nums){
             if(max<i) max=i;
         }
-        int sum=max;
-        for(int i=1;i<k;i++){
-            max=max+1;
-            sum+=max;
-        }
-        return sum;
+        return  max*k + (k-1)*k/2;
     }
 }

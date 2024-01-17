@@ -8,9 +8,6 @@ class Solution {
         for(int i:map.values()){
             set.add(i);
         }
-        if(set.size()==map.size()){
-            return true;
-        }
-        return false;
+        return set.size()==map.size();
     }
 }

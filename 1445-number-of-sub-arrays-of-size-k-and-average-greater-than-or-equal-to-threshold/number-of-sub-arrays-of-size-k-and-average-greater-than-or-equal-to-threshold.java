@@ -3,7 +3,6 @@ class Solution {
         int a=0;
         int b=0;
         int sum=0;
-        int avg=0;
         int count=0;
         while(b<arr.length){
             sum+=arr[b];

@@ -9,7 +9,6 @@ class Solution {
                 map.put(i,map.get(i)+1);
             }
         }
-        System.out.println(map);
         int n =nums.length;
         for(Map.Entry<Integer,Integer>e:map.entrySet()){
             if(e.getValue()>n/2){

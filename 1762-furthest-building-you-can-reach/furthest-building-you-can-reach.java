@@ -7,7 +7,7 @@ class Solution {
             if(diff<=0) continue;
 
             bricks-=diff;
-            pq.offer(diff);
+            pq.add(diff);
 
             if(bricks<0){
                 bricks += pq.poll();

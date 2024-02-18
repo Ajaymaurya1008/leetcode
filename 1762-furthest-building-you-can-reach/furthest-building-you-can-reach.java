@@ -10,7 +10,7 @@ class Solution {
             pq.add(diff);
 
             if(bricks<0){
-                bricks += pq.poll();
+                bricks += pq.remove();
                 ladders--;
             }
             if(ladders<0) break;

@@ -14,12 +14,6 @@ class Solution {
         if(head.next==null){
             head=null;
             return head;
-        }else if(head.next.next==null && n==1){
-            head.next=null;
-            return head;
-        }else if(head.next.next==null && n==2){
-            head=head.next;
-            return head;
         }
         ListNode current = head;
         while(current!=null){
@@ -27,11 +21,9 @@ class Solution {
             size++;
         }
         if(size-n==0) return head.next;
-        System.out.println(size);
         ListNode current2=head;
         int count=0;
         while(current2!=null){
-            System.out.println(current2.val);
             if(count==size-n-1){
                 current2.next=current2.next.next;
             }else{

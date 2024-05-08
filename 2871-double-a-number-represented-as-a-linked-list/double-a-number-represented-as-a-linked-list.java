@@ -20,13 +20,10 @@ class Solution {
         BigInteger num = new BigInteger(str.toString());
         num=num.add(num);
         String numStr = num.toString();
-        // String numStr = BigInteger.toString(n);
         int i =0;
         current = head;
-        System.out.println(numStr);
 
         while(current!=null && i<numStr.length()){
-            System.out.println(numStr.charAt(i)-'0');
             if(i==numStr.length()-2 && current.next == null){
                 ListNode extra = new ListNode();
                 extra.val = numStr.charAt(i) - '0';

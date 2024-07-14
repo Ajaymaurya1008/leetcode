@@ -21,7 +21,6 @@ class Solution {
             current=current.next;
         }
         if(list.size()<4) return arr;
-        System.out.println(list);
         for(int i=1;i<list.size()-1;i++){
             if(list.get(i-1)>list.get(i)&&list.get(i+1)>list.get(i) || list.get(i-1)<list.get(i)&&list.get(i+1)<list.get(i)){
                 criticalPoints.add(i);
@@ -35,15 +34,5 @@ class Solution {
         arr[1]=criticalPoints.get(criticalPoints.size()-1)-criticalPoints.get(0);
         arr[0]=min;
         return arr;
-    }
-
-    public static int minMax(ArrayList<Integer> list){
-        int min=Integer.MAX_VALUE;
-        for(int i=0;i<list.size()-1;i++){
-            for(int j=i+1;j<list.size();j++){
-                min=Math.min(min,list.get(j)-list.get(i));
-            }
-        }
-        return min;
     }
 }

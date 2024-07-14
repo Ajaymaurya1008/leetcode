@@ -10,29 +10,41 @@
  */
 class Solution {
     public int[] nodesBetweenCriticalPoints(ListNode head) {
-        ListNode current = head;
-        int index=0;
+        ListNode current = head.next;
+        ListNode prev=head;
+        ListNode next=head.next.next;
+        int criticalPoints=0;
+        int size=0;
         int min=Integer.MAX_VALUE;
+        int firstCriticalPoint=-1;
+        int lastCriticalPoint=-1;
+        int prevCriticalPoint=-1;;
         int[] arr = {-1,-1};
-        ArrayList<Integer> list = new ArrayList();
-        ArrayList<Integer> criticalPoints = new ArrayList();
-        while(current!=null){
-            list.add(current.val);
-            current=current.next;
-        }
-        if(list.size()<4) return arr;
-        for(int i=1;i<list.size()-1;i++){
-            if(list.get(i-1)>list.get(i)&&list.get(i+1)>list.get(i) || list.get(i-1)<list.get(i)&&list.get(i+1)<list.get(i)){
-                criticalPoints.add(i);
-                if(index!=0){
-                    min=Math.min(min,i-index);
+        while(next!=null){
+            if((current.val>prev.val && current.val>next.val) || (current.val<prev.val && current.val<next.val)){
+                System.out.println(size);
+                if(prevCriticalPoint!=-1){
+                    min=Math.min(min,size-prevCriticalPoint);
+                }else{
+                    firstCriticalPoint=size;
                 }
-                index=i;
+                prevCriticalPoint=size;
+                criticalPoints++;
+            }
+            current=current.next;
+            prev=prev.next;
+            next=next.next;
+            size++;
+            if(next==null){
+                lastCriticalPoint=prevCriticalPoint;
             }
         }
-        if(criticalPoints.size()<2) return arr;
-        arr[1]=criticalPoints.get(criticalPoints.size()-1)-criticalPoints.get(0);
-        arr[0]=min;
+        System.out.println("first"+firstCriticalPoint);
+        System.out.println("last"+lastCriticalPoint);
+        if(criticalPoints<2) return arr;
+        if(size<2) return arr;
+        arr[0] = min;
+        arr[1] = lastCriticalPoint-firstCriticalPoint;
         return arr;
     }
 }

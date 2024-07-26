@@ -1,11 +1,8 @@
 class Solution {
     public String gcdOfStrings(String str1, String str2) {
-        StringBuilder sb = new StringBuilder();
         int m=-1;
         for(int i=0;i<str1.length();i++){
-            sb.append(str1.charAt(i));
-            if(isDivisible(str1,sb.toString()) && isDivisible(str2,sb.toString())){
-                System.out.println(i);
+            if(isDivisible(str1,str1.substring(0,i+1)) && isDivisible(str2,str1.substring(0,i+1))){
                 m=i;
             }
         }
